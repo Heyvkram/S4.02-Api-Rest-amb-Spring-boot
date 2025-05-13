@@ -26,12 +26,12 @@ public class FruitaController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable int id){
+    public void delete(@PathVariable long id){
         service.deleteFruit(id);
     }
 
     @GetMapping("/getOne/{id}")
-    public Optional<Fruita> getOne(@PathVariable int id){
+    public Optional<Fruita> getOne(@PathVariable long id){
         return service.getFruitById(id);
     }
 
