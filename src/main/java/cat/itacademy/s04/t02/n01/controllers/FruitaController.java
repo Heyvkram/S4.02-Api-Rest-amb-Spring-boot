@@ -1,5 +1,6 @@
 package cat.itacademy.s04.t02.n01.controllers;
 
+import cat.itacademy.s04.t02.n01.exceptions.FruitaNotFoundException;
 import cat.itacademy.s04.t02.n01.model.Fruita;
 import cat.itacademy.s04.t02.n01.services.FruitaServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class FruitaController {
     }
 
     @GetMapping("/getOne/{id}")
-    public Optional<Fruita> getOne(@PathVariable long id){
+    public Fruita getOne(@PathVariable long id){
         return service.getFruitById(id);
     }
 

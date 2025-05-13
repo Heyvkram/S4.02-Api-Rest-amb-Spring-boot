@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FruitaServices {
@@ -33,12 +32,9 @@ public class FruitaServices {
         repository.deleteById(id);
     }
 
-    public Optional<Fruita> getFruitById(long id) {
-        Optional<Fruita> fruit = repository.findById(id);
-        if (fruit.isEmpty()) {
-            throw new FruitaNotFoundException("There´s no Fruit with ID: " + id);
-        }
-        return fruit;
+    public Fruita getFruitById(long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new FruitaNotFoundException("There's no Fruit with ID: " + id));
     }
 
 
